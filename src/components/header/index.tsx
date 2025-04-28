@@ -13,21 +13,27 @@ export function Header() {
                     <Link href="/">
                     <h1 className={styles.logo}>Tarefas<span>+</span></h1> 
                     </Link>
-                </nav>
-               {session?.user && (
+                    {session?.user && (
                  <Link href="/dashboard" className={styles.link}>
                  Meu Painel
                  </Link>
                )}
+                </nav>
+               
                 {status === "loading" ? (
                     <></>
                 ) : session ? (
-                    <button className={styles.loginButton} onClick={() => signOut()}>
+                    <button className={styles.loginButton} 
+                    onClick={() => signOut()}>
                         Olá {session?.user?.name}
                     </button>
-                ) : ( <button className={styles.loginButton} onClick={() => signIn("google")}>
+                ) : ( 
+                <button 
+                className={styles.loginButton} onClick={() => signIn("google")}
+                >
                 Acessar
-            </button>)}
+            </button>
+        )}
             </section>
         </header>
     )
